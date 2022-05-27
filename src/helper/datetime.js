@@ -16,7 +16,7 @@ const datetime={
         const daily=['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         const day = daily[date.getDay()]
         const dat = date.getDate();
-        const month=date.getMonth();
+        const month=date.getMonth()+1;
         return `${day}, ${dat}/${month}`;
     },
     convertDtToOclock: (dt)=>{

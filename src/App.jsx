@@ -5,8 +5,8 @@ import {common, grey} from '@mui/material/colors'
 import Maincontent from './components/Maincontent'
 import {useEffect} from 'react'
 import { useDispatch,useSelector} from 'react-redux';
-import { getWeatherAsync,weatherSelector } from './redux/weatherSlice';
-
+import { weatherSelector } from './redux/weatherSlice';
+import {GET_WEATHER} from './redux/weatherAction'
 
 function App() {
   const blanc = common.white;
@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch()
   const weather = useSelector(weatherSelector)
   useEffect(() => {
-    dispatch(getWeatherAsync())
+    dispatch(GET_WEATHER())
   },[])
   console.log(weather)
   return (

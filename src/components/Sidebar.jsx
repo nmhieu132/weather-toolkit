@@ -5,8 +5,9 @@ import { makeStyles } from '@mui/styles';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import datetime from '../helper/datetime';
-import { getWeatherAsync, statusSelector, weatherSelector } from '../redux/weatherSlice';
+import { statusSelector, weatherSelector } from '../redux/weatherSlice';
 import MuiAlert from '@mui/material/Alert'
+import {GET_WEATHER} from '../redux/weatherAction'
 
 const useStyles = makeStyles({
     inputField: {
@@ -122,7 +123,7 @@ function Sidebar(){
                     placeholder="Search"  
                     onKeyDown={(e)=>{
                         if(e.code==='NumpadEnter'||e.code==='Enter'){
-                            dispatch(getWeatherAsync(e.target.value))
+                            dispatch(GET_WEATHER(e.target.value))
                             e.target.value=''
                         }
                     }}
